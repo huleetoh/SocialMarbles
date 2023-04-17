@@ -29,7 +29,19 @@ public class UserInput : MonoBehaviour
         roll = AndroidGyro.roll;        // Update gyro data - Used for x Movement
         azimuth = AndroidGyro.azimuth;  // Update gyro data - Probabaly not needed
     
-        
+                           
+            if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || (roll > 0 && roll <60))        // Keyboard Movement Controls 
+                moveDirection = MOVEDIR.LEFT.ToString();
+            else if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || (roll > 300 && roll < 360))   // Keyboard Movement Controls 
+                moveDirection = MOVEDIR.RIGHT.ToString(); 
+            else if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || (pitch > 0 && pitch < 60) )      // Keyboard Movement Controls 
+                moveDirection = MOVEDIR.FWD.ToString();
+            else if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || (pitch > 300 && pitch < 360))  // Keyboard Movement Controls 
+                moveDirection = MOVEDIR.BACK.ToString();
+            //else
+              //  moveDirection = "";
+
+        /**
         if(this.gameObject.transform.position.x > LevelBoundary.leftBoundary)                               // Sideways Movement with floor boundary limit
             if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || (roll > 0 && roll <60))        // Keyboard Movement Controls 
                 moveDirection = MOVEDIR.LEFT.ToString();
@@ -45,6 +57,6 @@ public class UserInput : MonoBehaviour
         if(this.gameObject.transform.position.z > LevelBoundary.rearBoundary)
             if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || (pitch > 300 && pitch < 360))  // Keyboard Movement Controls 
                 moveDirection = MOVEDIR.BACK.ToString();
-                              
+        */                   
     }
 }
