@@ -15,13 +15,13 @@ public class BallMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+
     void Update() {
         // Handle inputs    
         ProcessInputs();
     }
 
     private void FixedUpdate(){
-        // Movement here
         Move();
     }
 
@@ -34,12 +34,13 @@ public class BallMovement : MonoBehaviour
             xInput = Input.GetAxis("Horizontal"); 
             zInput = Input.GetAxis("Vertical"); 
         }
-        
     }
 
     private void Move(){
         rb.AddForce(new Vector3(xInput, 0f, zInput) * moveSpeed);
     }
+
+
 
 
 
